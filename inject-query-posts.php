@@ -2,17 +2,17 @@
 /**
  * @package Inject_Query_Posts
  * @author Scott Reilly
- * @version 2.0
+ * @version 2.0.1
  */
 /*
 Plugin Name: Inject Query Posts
-Version: 2.0
+Version: 2.0.1
 Plugin URI: http://coffee2code.com/wp-plugins/inject-query-posts/
 Author: Scott Reilly
 Author URI: http://coffee2code.com
 Description: Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
 
-Compatible with WordPress 2.3+, 2.5+, 2.6+, 2.7+, 2.8+, 2.9+, 3.0+
+Compatible with WordPress 2.3+, 2.5+, 2.6+, 2.7+, 2.8+, 2.9+, 3.0+, 3.1+.
 
 NOTE: Injecting posts into a query object will cause that object to forget about previous posts it may have retrieved.  You probably
 only want to do this outside of any existing loops, and create your own custom loop after the injection.
@@ -24,7 +24,7 @@ only want to do this outside of any existing loops, and create your own custom l
 */
 
 /*
-Copyright (c) 2008-2010 by Scott Reilly (aka coffee2code)
+Copyright (c) 2008-2011 by Scott Reilly (aka coffee2code)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
 files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,
@@ -66,6 +66,7 @@ if ( !function_exists( 'inject_query_posts' ) ) :
 function inject_query_posts( $posts, $config = array(), $query_obj = null, $preserve_query_obj = true ) {
 	$posts = (array) $posts;
 	$preserve_query_obj = apply_filters( 'inject_query_posts_preserve_query_obj', $preserve_query_obj, $query_obj );
+
 	if ( !$query_obj ) {
 		global $wp_query;
 		$query_obj = $wp_query;

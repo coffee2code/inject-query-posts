@@ -3,11 +3,12 @@ Contributors: coffee2code
 Donate link: http://coffee2code.com/donate
 Tags: wp_query, query, posts, loop, template tags, coffee2code
 Requires at least: 2.3
-Tested up to: 3.0.1
-Stable tag: 2.0
-Version: 2.0
+Tested up to: 3.1
+Stable tag: 2.0.1
+Version: 2.0.1
 
 Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
+
 
 == Description ==
 
@@ -36,6 +37,9 @@ if (have_posts()) :
     <?php endwhile;?>
 <?php endif; ?>
 `
+
+Links: [Plugin Homepage]:(http://coffee2code.com/wp-plugins/inject-query-posts/) | [Author Homepage]:(http://coffee2code.com)
+
 
 == Installation ==
 
@@ -105,6 +109,10 @@ function my_preserve_query_obj( $preserve_query_obj, $query_obj ) {
 
 == Changelog ==
 
+= 2.0.1 =
+* Note compatibility through WP 3.1+
+* Update copyright date (2011)
+
 = 2.0 =
 * If no query_obj is sent, use the global $wp_query object (previously used to create a new query object)
 * If a not-false, non-object value is sent as $wp_query object (namely any non-empty string or non-zero integer), then create a new WP_Query object for use
@@ -128,6 +136,9 @@ function my_preserve_query_obj( $preserve_query_obj, $query_obj ) {
 
 
 == Upgrade Notice ==
+
+= 2.0.1 =
+Trivial update: noted compatibility with WP 3.1+ and updated copyright date.
 
 = 2.0 =
 Recommended major update! Highlights: now use global WP_Query object by default; added ability to preserve state of existing query object; misc non-functionality changes; expanded readme.txt text; verified WP 3.0 compatibility.
