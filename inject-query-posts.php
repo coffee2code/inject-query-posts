@@ -2,11 +2,11 @@
 /**
  * @package Inject_Query_Posts
  * @author Scott Reilly
- * @version 2.0.2
+ * @version 2.0.3
  */
 /*
 Plugin Name: Inject Query Posts
-Version: 2.0.2
+Version: 2.0.3
 Plugin URI: http://coffee2code.com/wp-plugins/inject-query-posts/
 Author: Scott Reilly
 Author URI: http://coffee2code.com
@@ -90,8 +90,6 @@ function inject_query_posts( $posts, $config = array(), $query_obj = null, $pres
 		$query_obj->max_num_comment_pages = 0;
 		$query_obj->is_preview = false;
 		$query_obj->is_comments_popup = false;
-		$query_obj->meta_query = array();
-		$query_obj->tax_query = array();
 
 		if ( isset( $config['query'] ) )
 			$query_obj->parse_query( $config['query'] ); // This calls init() itself, so no need to do it here
