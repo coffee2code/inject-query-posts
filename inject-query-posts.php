@@ -2,17 +2,17 @@
 /**
  * @package Inject_Query_Posts
  * @author Scott Reilly
- * @version 2.0.1
+ * @version 2.0.2
  */
 /*
 Plugin Name: Inject Query Posts
-Version: 2.0.1
+Version: 2.0.2
 Plugin URI: http://coffee2code.com/wp-plugins/inject-query-posts/
 Author: Scott Reilly
 Author URI: http://coffee2code.com
 Description: Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
 
-Compatible with WordPress 2.3+, 2.5+, 2.6+, 2.7+, 2.8+, 2.9+, 3.0+, 3.1+.
+Compatible with WordPress 2.3+, 2.5+, 2.6+, 2.7+, 2.8+, 2.9+, 3.0+, 3.1+, 3.2+.
 
 NOTE: Injecting posts into a query object will cause that object to forget about previous posts it may have retrieved.  You probably
 only want to do this outside of any existing loops, and create your own custom loop after the injection.
@@ -39,7 +39,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRA
 IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-if ( !function_exists( 'inject_query_posts' ) ) :
+if ( ! function_exists( 'inject_query_posts' ) ) :
 /**
  * Injects an array of posts into a query object as if that query object had
  * obtained those posts via a query.
@@ -67,16 +67,17 @@ function inject_query_posts( $posts, $config = array(), $query_obj = null, $pres
 	$posts = (array) $posts;
 	$preserve_query_obj = apply_filters( 'inject_query_posts_preserve_query_obj', $preserve_query_obj, $query_obj );
 
-	if ( !$query_obj ) {
+	if ( ! $query_obj ) {
 		global $wp_query;
 		$query_obj = $wp_query;
 	}
-	if ( !is_object( $query_obj ) )
+
+	if ( ! is_object( $query_obj ) )
 		$query_obj = new WP_Query();
 
 	// Initialize the query object
-	if ( !$preserve_query_obj ) {
-		// As of WP 2.9.1, these object variables are not resettable except directly
+	if ( ! $preserve_query_obj ) {
+		// From WP 2.9.1 - 3.1, these object variables are not resettable except directly
 		$query_obj->post = '';
 		$query_obj->request = '';
 		$query_obj->found_posts = 0;
@@ -89,17 +90,21 @@ function inject_query_posts( $posts, $config = array(), $query_obj = null, $pres
 		$query_obj->max_num_comment_pages = 0;
 		$query_obj->is_preview = false;
 		$query_obj->is_comments_popup = false;
+		$query_obj->meta_query = array();
+		$query_obj->tax_query = array();
 
 		if ( isset( $config['query'] ) )
 			$query_obj->parse_query( $config['query'] ); // This calls init() itself, so no need to do it here
 		else
 			$query_obj->init();
 	}
+
 	foreach ( (array) $config as $key => $value ) {
 		if ( 'query' == $key )
 			continue;
 		$query_obj->$key = $value;
 	}
+
 	// Load the posts into the query object
 	$query_obj->posts = $posts;
 	update_post_caches( $posts );
@@ -108,8 +113,10 @@ function inject_query_posts( $posts, $config = array(), $query_obj = null, $pres
 		$query_obj->post = $posts[0];
 		$query_obj->found_posts = $query_obj->post_count;
 	}
-	if ( !isset( $config['is_404'] ) ) // Unless explicitly told to be a 404, don't be a 404
+
+	if ( ! isset( $config['is_404'] ) ) // Unless explicitly told to be a 404, don't be a 404
 		$query_obj->is_404 = false;
+
 	$wp_query = $query_obj; // This only has effect if $wp_query was previously declared global
 	return $posts;
 }

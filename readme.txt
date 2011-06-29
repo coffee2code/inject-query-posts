@@ -3,9 +3,9 @@ Contributors: coffee2code
 Donate link: http://coffee2code.com/donate
 Tags: wp_query, query, posts, loop, template tags, coffee2code
 Requires at least: 2.3
-Tested up to: 3.1
-Stable tag: 2.0.1
-Version: 2.0.1
+Tested up to: 3.2
+Stable tag: 2.0.2
+Version: 2.0.2
 
 Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
 
@@ -38,7 +38,7 @@ if (have_posts()) :
 <?php endif; ?>
 `
 
-Links: [Plugin Homepage]:(http://coffee2code.com/wp-plugins/inject-query-posts/) | [Author Homepage]:(http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/inject-query-posts/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -100,14 +100,21 @@ Arguments:
 
 Example:
 
-`// Never preserve the condition of the WP_Query object
+`
+// Never preserve the condition of the WP_Query object
 add_filter( 'inject_query_posts_preserve_query_obj', 'my_preserve_query_obj', 10, 2 );
 function my_preserve_query_obj( $preserve_query_obj, $query_obj ) {
 	return false;
-}`
+}
+`
 
 
 == Changelog ==
+
+= 2.0.2 =
+* Note compatibility through WP 3.2+
+* Minor code formatting changes (spacing)
+* Fix plugin homepage and author links in description in readme.txt
 
 = 2.0.1 =
 * Note compatibility through WP 3.1+
@@ -136,6 +143,9 @@ function my_preserve_query_obj( $preserve_query_obj, $query_obj ) {
 
 
 == Upgrade Notice ==
+
+= 2.0.2 =
+Trivial update: noted compatibility through WP 3.2+
 
 = 2.0.1 =
 Trivial update: noted compatibility with WP 3.1+ and updated copyright date.
