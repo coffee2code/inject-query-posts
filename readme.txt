@@ -2,10 +2,12 @@
 Contributors: coffee2code
 Donate link: http://coffee2code.com/donate
 Tags: wp_query, query, posts, loop, template tags, coffee2code
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 2.3
-Tested up to: 3.3
-Stable tag: 2.0.4
-Version: 2.0.4
+Tested up to: 3.4
+Stable tag: 2.0.5
+Version: 2.0.5
 
 Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
 
@@ -112,6 +114,12 @@ function my_preserve_query_obj( $preserve_query_obj, $query_obj ) {
 
 == Changelog ==
 
+= 2.0.5 =
+* Re-license as GPLv2 or later (from X11)
+* Add 'License' and 'License URI' header tags to readme.txt and plugin file
+* Remove ending PHP close tag
+* Note compatibility through WP 3.4+
+
 = 2.0.4 =
 * Note compatibility through WP 3.2+
 * Add link to plugin directory page to readme.txt
@@ -152,6 +160,9 @@ function my_preserve_query_obj( $preserve_query_obj, $query_obj ) {
 
 
 == Upgrade Notice ==
+
+= 2.0.5 =
+Trivial update: noted compatibility through WP 3.4+; explicitly stated license
 
 = 2.0.4 =
 Trivial update: noted compatibility through WP 3.3+ and minor readme.txt tweaks
