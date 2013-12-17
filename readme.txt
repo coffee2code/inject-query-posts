@@ -1,22 +1,19 @@
 === Inject Query Posts ===
 Contributors: coffee2code
-Donate link: http://coffee2code.com/donate
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6ARCFJ9TX3522
 Tags: wp_query, query, posts, loop, template tags, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Requires at least: 2.3
-Tested up to: 3.5
-Stable tag: 2.1
-Version: 2.1
+Requires at least: 3.6
+Tested up to: 3.8
+Stable tag: 2.2
 
 Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
 
 
 == Description ==
 
-Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
-
-WordPress's template tags are intended to be used within 'the loop'.  The loop is managed by a WP_Query object which sets up various global variables and its own object variables for use by the various template tags.  The primary purpose of a WP_Query object is to actually query the database for the posts that match the currently specified criteria.  However, if you don't need to query for posts since you already have them by some other means, you can still take advantage of the template tags by injecting those posts into the WP_Query via this plugin.
+WordPress's template tags are intended to be used within 'the loop'. The loop is managed by a WP_Query object which sets up various global variables and its own object variables for use by the various template tags. The primary purpose of a WP_Query object is to actually query the database for the posts that match the currently specified criteria. However, if you don't need to query for posts since you already have them by some other means, you can still take advantage of the template tags by injecting those posts into the WP_Query via this plugin.
 
 Depending on the template tags you are looking to use, or the logic you are hoping to employ within a loop, you may need to manually configure some of the query object's variables.
 
@@ -25,15 +22,15 @@ Example:
 `
 <?php // Say we're in the sidebar
 
-// We've gotten some post object on our own.
+// We've gotten some post objects on our own.
 $posts = c2c_get_random_posts( 5, '' );
 
 // Inject the posts
 c2c_inject_query_posts( $posts );
 
 // Now let's display them via template tags:
-if (have_posts()) :
-    while (have_posts()) : the_post(); ?>
+if ( have_posts() ) :
+    while ( have_posts() ) : the_post(); ?>
 
         <li><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
 
@@ -42,7 +39,7 @@ if (have_posts()) :
 
 `
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/inject-query-posts/) | [Plugin Directory Page](http://wordpress.org/extend/plugins/inject-query-posts/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/inject-query-posts/) | [Plugin Directory Page](http://wordpress.org/plugins/inject-query-posts/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -73,7 +70,7 @@ Optional.  Associative array of query object variables to directly set, and thei
 Optional.  The query object to modify. If null, then the global wp_query object will be used. Pass a string or non-zero integer to have a new query object created and used.
 
 * `$preserve_query_obj` (bool)
-Optional.  Should the query object be kept as-is prior to injecting posts? Default is true. If false, then the object is re-initialized/reset.
+Optional.  Should the query object be kept as-is prior to injecting posts? Default is false. If false, then the object is re-initialized/reset before post injection.
 
 * `$cache_posts` (bool)
 Optional.  Update the posts in cache? Default is true.
@@ -88,7 +85,7 @@ Optional.  Update the posts in cache? Default is true.
 <?php
 $posts = c2c_get_random_posts( 5, '' ); // Obtain posts via your favorite related posts, find posts, etc plugin, or via custom query
 do_action( 'c2c_inject_query_posts', $posts ); // Better than direct call to c2c_inject_query_posts( $posts );
-get_template_part('loop');
+get_template_part( 'loop' );
 ?>
 `
 
@@ -98,7 +95,7 @@ The plugin is further customizable via two hooks. Typically, these customization
 
 = inject_query_posts_preserve_query_obj (filter) =
 
-The 'inject_query_posts_preserve_query_obj' filter allows you override the value of the `$preserve_query_obj` argument passed to the function.  This is not typical usage for most users.
+The 'inject_query_posts_preserve_query_obj' filter allows you override the value of the `$preserve_query_obj` argument passed to the function. This is not typical usage for most users.
 
 Arguments:
 
@@ -110,16 +107,16 @@ Arguments:
 Example:
 
 `
-// Never preserve the condition of the WP_Query object
+// Always preserve the condition of the WP_Query object
 add_filter( 'inject_query_posts_preserve_query_obj', 'my_preserve_query_obj', 10, 4 );
 function my_preserve_query_obj( $preserve_query_obj, $query_obj, $posts, $config ) {
-	return false;
+	return true;
 }
 `
 
 = c2c_inject_query_posts (action) =
 
-The 'c2c_inject_query_posts' filter allows you to use an alternative approach to safely invoke `c2c_inject_query_posts()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.  This only applies if you use the function directly, which is not typical usage for most users.
+The 'c2c_inject_query_posts' filter allows you to use an alternative approach to safely invoke `c2c_inject_query_posts()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.
 
 Arguments:
 
@@ -137,6 +134,19 @@ Do:
 
 
 == Changelog ==
+
+= 2.2 (2013-12-17) =
+* Change default of $preserve_query_obj argument to false, meaning that the query object getting injected will be reset before doing so
+* Remove manual resetting of WP_Query variables since the class's init() does it all
+* Support passing a WP_Post object as the first argument
+* Add unit tests
+* Note compatibility through WP 3.8+
+* Drop compatibility with versions of WP older than 3.6
+* Update copyright date (2014)
+* Add banner
+* Change donate link
+* Minor code formatting changes (bracing)
+* Minor formatting changes (spacing) and code example changes in readme.txt
 
 = 2.1 =
 * Rename `inject_query_posts()` to `c2c_inject_query_posts()` (but maintain a deprecated version for backwards compatibility)
@@ -195,6 +205,9 @@ Do:
 
 
 == Upgrade Notice ==
+
+= 2.2 =
+Moderate update: changed default value of $preserve_query_obj arg to false; added unit tests; noted compatibility through WP 3.8+; dropped compatibility with WP older than 3.6
 
 = 2.1 =
 Recommended major update: added argument and better handling for post caching; added filter; added arguments to existing filter; renamed and deprecated all existing functions; noted compatibility through WP 3.5+; and more.

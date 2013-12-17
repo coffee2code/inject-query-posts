@@ -2,11 +2,11 @@
 /**
  * @package Inject_Query_Posts
  * @author Scott Reilly
- * @version 2.1
+ * @version 2.2
  */
 /*
 Plugin Name: Inject Query Posts
-Version: 2.1
+Version: 2.2
 Plugin URI: http://coffee2code.com/wp-plugins/inject-query-posts/
 Author: Scott Reilly
 Author URI: http://coffee2code.com/
@@ -14,7 +14,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Description: Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
 
-Compatible with WordPress 2.3 through 3.5+.
+Compatible with WordPress 3.6 through 3.8+.
 
 NOTE: Injecting posts into a query object will cause that object to forget about previous posts it may have retrieved.  You probably
 only want to do this outside of any existing loops, and create your own custom loop after the injection.
@@ -26,12 +26,11 @@ only want to do this outside of any existing loops, and create your own custom l
 TODO: (in 3.0)
 	* Rename $preserve_query_obj arg to $reset_query_obj. Leave default as true, which changes default behavior of the arg.
 	* Deprecate 'inject_query_posts_preserve_query_obj' filter and introduce 'c2c_inject_query_posts_reset_query_obj'
-	* Drop pre-WP 3.1 support
 	* Remove already deprecated inject_query_posts()
 */
 
 /*
-	Copyright (c) 2008-2013 by Scott Reilly (aka coffee2code)
+	Copyright (c) 2008-2014 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
@@ -77,8 +76,9 @@ if ( ! function_exists( 'c2c_inject_query_posts' ) ) :
  * @param bool $cache_posts (optional) Update the posts in cache? Default is true.
  * @return array The originally passed in array of posts.
  */
-function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $preserve_query_obj = true, $cache_posts = true ) {
-	$posts = (array) $posts;
+function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $preserve_query_obj = false, $cache_posts = true ) {
+	$posts = is_array( $posts ) ? $posts : array( $posts );
+
 	$preserve_query_obj = apply_filters( 'inject_query_posts_preserve_query_obj', $preserve_query_obj, $query_obj, $posts, $config );
 
 	if ( ! $query_obj ) {
@@ -86,34 +86,25 @@ function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $
 		$query_obj = $wp_query;
 	}
 
-	if ( ! is_object( $query_obj ) )
+	if ( ! is_object( $query_obj ) ) {
 		$query_obj = new WP_Query();
+	}
+
+	$query_obj->current_post = -1;
 
 	// Initialize the query object
 	if ( ! $preserve_query_obj ) {
-		// From WP 2.9.1 - 3.1, these object variables are not resettable except directly
-		$query_obj->post = '';
-		$query_obj->request = '';
-		$query_obj->found_posts = 0;
-		$query_obj->max_num_pages = 0;
-		$query_obj->comments = '';
-		$query_obj->comment_count = 0;
-		$query_obj->current_comment = -1;
-		$query_obj->comment = '';
-		$query_obj->max_num_pages = 0;
-		$query_obj->max_num_comment_pages = 0;
-		$query_obj->is_preview = false;
-		$query_obj->is_comments_popup = false;
-
-		if ( isset( $config['query'] ) )
+		if ( isset( $config['query'] ) ) {
 			$query_obj->parse_query( $config['query'] ); // This calls init() itself, so no need to do it here
-		else
+		} else {
 			$query_obj->init();
+		}
 	}
 
 	foreach ( (array) $config as $key => $value ) {
-		if ( in_array( $key, array( 'query', 'update_post_meta_cache', 'update_post_term_cache' ) ) )
+		if ( in_array( $key, array( 'query', 'update_post_meta_cache', 'update_post_term_cache' ) ) ) {
 			continue;
+		}
 		$query_obj->$key = $value;
 	}
 
@@ -135,8 +126,9 @@ function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $
 		$query_obj->found_posts = $query_obj->post_count;
 	}
 
-	if ( ! isset( $config['is_404'] ) ) // Unless explicitly told to be a 404, don't be a 404
+	if ( ! isset( $config['is_404'] ) ) { // Unless explicitly told to be a 404, don't be a 404
 		$query_obj->is_404 = false;
+	}
 
 	$wp_query = $query_obj; // This only has effect if $wp_query was previously declared global
 
