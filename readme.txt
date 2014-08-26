@@ -5,8 +5,8 @@ Tags: wp_query, query, posts, loop, template tags, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 3.8
-Stable tag: 2.2
+Tested up to: 4.0
+Stable tag: 2.2.1
 
 Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
 
@@ -39,7 +39,7 @@ if ( have_posts() ) :
 
 `
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/inject-query-posts/) | [Plugin Directory Page](http://wordpress.org/plugins/inject-query-posts/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/inject-query-posts/) | [Plugin Directory Page](https://wordpress.org/plugins/inject-query-posts/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -135,6 +135,12 @@ Do:
 
 == Changelog ==
 
+= 2.2.1 (2014-08-25) =
+* Minor plugin header reformatting
+* Change documentation links to wp.org to be https
+* Note compatibility through WP 4.0+
+* Add plugin icon
+
 = 2.2 (2013-12-17) =
 * Change default of $preserve_query_obj argument to false, meaning that the query object getting injected will be reset before doing so
 * Remove manual resetting of WP_Query variables since the class's init() does it all
@@ -205,6 +211,9 @@ Do:
 
 
 == Upgrade Notice ==
+
+= 2.2.1 =
+Trivial update: noted compatibility through WP 4.0+; added plugin icon.
 
 = 2.2 =
 Moderate update: changed default value of $preserve_query_obj arg to false; added unit tests; noted compatibility through WP 3.8+; dropped compatibility with WP older than 3.6
