@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Inject Query Posts
- * Version:     2.2.1
+ * Version:     2.2.2
  * Plugin URI:  http://coffee2code.com/wp-plugins/inject-query-posts/
  * Author:      Scott Reilly
  * Author URI:  http://coffee2code.com/
@@ -9,7 +9,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Description: Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
  *
- * Compatible with WordPress 3.6 through 4.0+.
+ * Compatible with WordPress 3.6 through 4.1+.
  *
  * NOTE: Injecting posts into a query object will cause that object to forget about previous posts it may have retrieved. You probably
  * only want to do this outside of any existing loops, and create your own custom loop after the injection.
@@ -25,11 +25,11 @@
  *
  * @package Inject_Query_Posts
  * @author Scott Reilly
- * @version 2.2.1
+ * @version 2.2.2
  */
 
 /*
-	Copyright (c) 2008-2014 by Scott Reilly (aka coffee2code)
+	Copyright (c) 2008-2015 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
