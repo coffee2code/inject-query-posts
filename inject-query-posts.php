@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Inject Query Posts
- * Version:     2.2.2
+ * Version:     2.2.3
  * Plugin URI:  http://coffee2code.com/wp-plugins/inject-query-posts/
  * Author:      Scott Reilly
  * Author URI:  http://coffee2code.com/
@@ -9,14 +9,14 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Description: Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
  *
- * Compatible with WordPress 3.6 through 4.1+.
+ * Compatible with WordPress 3.6 through 4.3+.
  *
  * NOTE: Injecting posts into a query object will cause that object to forget about previous posts it may have retrieved. You probably
  * only want to do this outside of any existing loops, and create your own custom loop after the injection.
  *
  * =>> Read the accompanying readme.txt file for instructions and documentation.
  * =>> Also, visit the plugin's homepage for additional information and updates.
- * =>> Or visit: https://wordpress.org/extend/plugins/inject-query-posts/
+ * =>> Or visit: https://wordpress.org/plugins/inject-query-posts/
  *
  * TODO: (in 3.0)
  * 	* Rename $preserve_query_obj arg to $reset_query_obj. Leave default as true, which changes default behavior of the arg.
@@ -24,8 +24,8 @@
  * 	* Remove already deprecated inject_query_posts()
  *
  * @package Inject_Query_Posts
- * @author Scott Reilly
- * @version 2.2.2
+ * @author  Scott Reilly
+ * @version 2.2.3
  */
 
 /*
@@ -68,12 +68,14 @@ if ( ! function_exists( 'c2c_inject_query_posts' ) ) :
  * NOTE: In order for 'query' to be configured via $config, $preserve_query_obj
  * must be false.
  *
- * @param array $posts Array of posts to inject into the query object.
- * @param array $config (optional) Associative array of query object variables to directly set, and their values.
- * @param WP_Query|null $query_obj (optional) The query object to modify. If null, then the global wp_query object will be used. Pass a string or non-zero integer to have a new query object created and used.
- * @param bool $preserve_query_obj (optional) Should the query object be kept as-is prior to injecting posts? Default is true. If false, then the object is re-initialized/reset.
- * @param bool $cache_posts (optional) Update the posts in cache? Default is true.
- * @return array The originally passed in array of posts.
+ * @param array         $posts              Array of posts to inject into the query object.
+ * @param array         $config             Optional. Associative array of query object variables to directly set, and their values.
+ * @param WP_Query|null $query_obj          Optional. The query object to modify. If null, then the global wp_query object will be
+ *                                          used. Pass a string or non-zero integer to have a new query object created and used.
+ * @param bool          $preserve_query_obj Optional. Should the query object be kept as-is prior to injecting posts? Default is true.
+ *                                          If false, then the object is re-initialized/reset.
+ * @param bool          $cache_posts        Optional. Update the posts in cache? Default is true.
+ * @return array        The originally passed in array of posts.
  */
 function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $preserve_query_obj = false, $cache_posts = true ) {
 	$posts = is_array( $posts ) ? $posts : array( $posts );
@@ -133,7 +135,7 @@ function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $
 
 	return $posts;
 }
-add_action( 'c2c_inject_query_posts', 'c2c_inject_query_posts', 10, 5 );
+add_filter( 'c2c_inject_query_posts', 'c2c_inject_query_posts', 10, 5 );
 endif;
 
 

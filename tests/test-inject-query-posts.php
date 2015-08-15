@@ -10,7 +10,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		}
 	}
 
-	/**
+	/*
 	 *
 	 * HELPER FUNCTIONS
 	 *
@@ -29,7 +29,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 	}
 
 
-	/**
+	/*
 	 *
 	 * TESTS
 	 *
@@ -48,6 +48,17 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		list( $post1, $post2, $post3 ) = $this->create_posts();
 
 		c2c_inject_query_posts( array( $post1, $post2 ) );
+
+		$this->assertTrue( have_posts() );
+		$this->assertEquals( 2, $GLOBALS['wp_query']->post_count );
+		the_post();
+		$this->assertEquals( 'here is the content', get_the_content() );
+	}
+
+	function test_template_tags_work_after_post_injection_via_hook() {
+		list( $post1, $post2, $post3 ) = $this->create_posts();
+
+		apply_filters( 'c2c_inject_query_posts', array( $post1, $post2 ) );
 
 		$this->assertTrue( have_posts() );
 		$this->assertEquals( 2, $GLOBALS['wp_query']->post_count );

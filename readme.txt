@@ -5,8 +5,8 @@ Tags: wp_query, query, posts, loop, template tags, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 4.1
-Stable tag: 2.2.2
+Tested up to: 4.3
+Stable tag: 2.2.3
 
 Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
 
@@ -107,14 +107,22 @@ Arguments:
 Example:
 
 `
-// Always preserve the condition of the WP_Query object
-add_filter( 'inject_query_posts_preserve_query_obj', 'my_preserve_query_obj', 10, 4 );
+/**
+ * Always preserve the condition of the WP_Query object passed ot Inject Query Posts.
+ *
+ * @param bool     $preserve_query_obj The default preservation value as passed to the function.
+ * @param WP_Query $query_obj          The query object.
+ * @param array    $posts              The posts being injected.
+ * @param array    $config             Associative array of query object variables to directly set, and their values.
+ * @return bool
+ */
 function my_preserve_query_obj( $preserve_query_obj, $query_obj, $posts, $config ) {
 	return true;
 }
+add_filter( 'inject_query_posts_preserve_query_obj', 'my_preserve_query_obj', 10, 4 );
 `
 
-= c2c_inject_query_posts (action) =
+= c2c_inject_query_posts (filter) =
 
 The 'c2c_inject_query_posts' filter allows you to use an alternative approach to safely invoke `c2c_inject_query_posts()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.
 
@@ -130,10 +138,17 @@ Instead of:
 
 Do:
 
-`<?php echo do_action( 'c2c_inject_query_posts', $posts, array( 'is_search' => true ) ); ?>`
+`<?php echo apply_filters( 'c2c_inject_query_posts', $posts, array( 'is_search' => true ) ); ?>`
 
 
 == Changelog ==
+
+= 2.2.3 (2015-08-14) =
+* Bugfix: 'c2c_inject_query_posts' hook should be a filter and not an action
+* Update: Correct documentation regarding 'c2c_inject_query_posts' hook
+* Update: Minor inline document tweaks (spacing)
+* Update: Add full inline documentation to provided example
+* Update: Note compatibility through WP 4.3+
 
 = 2.2.2 (2015-02-11) =
 * Note compatibility through WP 4.1+
@@ -216,6 +231,9 @@ Do:
 
 
 == Upgrade Notice ==
+
+= 2.2.3 =
+Trivial update: bugfix for very rare usage technique; noted compatibility through WP 4.3+
 
 = 2.2.2 =
 Trivial update: noted compatibility through WP 4.1+ and updated copyright date
