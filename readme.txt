@@ -5,8 +5,8 @@ Tags: wp_query, query, posts, loop, template tags, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 4.3
-Stable tag: 2.2.3
+Tested up to: 4.4
+Stable tag: 2.2.4
 
 Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
 
@@ -143,6 +143,13 @@ Do:
 
 == Changelog ==
 
+= 2.2.4 (2016-01-25) =
+* New: Create empty index.php to prevent files from being listed if web server has enabled directory listings.
+* New: Add 'Text Domain' header attribute.
+* Change: Note compatibility through WP 4.4+.
+* Change: Explicitly declare methods in unit tests as public.
+* Change: Update copyright date (2016).
+
 = 2.2.3 (2015-08-14) =
 * Bugfix: 'c2c_inject_query_posts' hook should be a filter and not an action
 * Update: Correct documentation regarding 'c2c_inject_query_posts' hook
@@ -231,6 +238,9 @@ Do:
 
 
 == Upgrade Notice ==
+
+= 2.2.4 =
+Trivial update: minor unit test tweaks; verified compatibility through WP 4.4+; and updated copyright date (2016)
 
 = 2.2.3 =
 Trivial update: bugfix for very rare usage technique; noted compatibility through WP 4.3+

@@ -1,8 +1,10 @@
 <?php
 
+defined( 'ABSPATH' ) or die();
+
 class Inject_Query_Posts_Test extends WP_UnitTestCase {
 
-	function tearDown() {
+	public function tearDown() {
 		parent::tearDown();
 		// Ensure main WP_Query gets reset
 		if ( isset ( $GLOBALS['wp_query'] ) ) {
@@ -10,14 +12,15 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		}
 	}
 
-	/*
-	 *
-	 * HELPER FUNCTIONS
-	 *
-	 */
+
+	//
+	//
+	// HELPER FUNCTIONS
+	//
+	//
 
 
-	function create_posts() {
+	protected function create_posts() {
 		$post_id1 = $this->factory->post->create( array( 'post_content' => 'a third go-round', 'post_title' => 'just to have more' ) );
 		$post_id2 = $this->factory->post->create( array( 'post_content' => 'more content', 'post_title' => 'another title' ) );
 		$post_id3 = $this->factory->post->create( array( 'post_content' => 'here is the content', 'post_title' => 'example title' ) );
@@ -29,14 +32,14 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 	}
 
 
-	/*
-	 *
-	 * TESTS
-	 *
-	 */
+	//
+	//
+	// TESTS
+	//
+	//
 
 
-	function test_return_value() {
+	public function test_return_value() {
 		$posts = $this->create_posts();
 
 		$injected_posts = c2c_inject_query_posts( $posts );
@@ -44,7 +47,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertEquals( $posts, $injected_posts );
 	}
 
-	function test_template_tags_work_after_post_injection() {
+	public function test_template_tags_work_after_post_injection() {
 		list( $post1, $post2, $post3 ) = $this->create_posts();
 
 		c2c_inject_query_posts( array( $post1, $post2 ) );
@@ -55,7 +58,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertEquals( 'here is the content', get_the_content() );
 	}
 
-	function test_template_tags_work_after_post_injection_via_hook() {
+	public function test_template_tags_work_after_post_injection_via_hook() {
 		list( $post1, $post2, $post3 ) = $this->create_posts();
 
 		apply_filters( 'c2c_inject_query_posts', array( $post1, $post2 ) );
@@ -66,7 +69,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertEquals( 'here is the content', get_the_content() );
 	}
 
-	function test_sending_post_as_first_arg() {
+	public function test_sending_post_as_first_arg() {
 		list( $post1, $post2, $post3 ) = $this->create_posts();
 
 		c2c_inject_query_posts( $post1 );
@@ -77,7 +80,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertEquals( 'here is the content', get_the_content() );
 	}
 
-	function test_filter_invocation() {
+	public function test_filter_invocation() {
 		$posts = $this->create_posts();
 
 		$injected_posts = apply_filters( 'c2c_inject_query_posts', $posts );
@@ -85,7 +88,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertEquals( $posts, $injected_posts );
 	}
 
-	function test_works_on_custom_wp_query() {
+	public function test_works_on_custom_wp_query() {
 		$posts = $this->create_posts();
 		$posts = array_slice( $posts, 0, 2 ); // Only grab first 2 for this test
 		$query = new WP_Query;
@@ -99,7 +102,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertNotEquals( $GLOBALS['wp_query'], $query );
 	}
 
-	function test_configuration_of_wp_query() {
+	public function test_configuration_of_wp_query() {
 		$posts = $this->create_posts();
 		$config = array(
 			'is_search' => true,
@@ -114,7 +117,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertEquals( 'dog', $GLOBALS['wp_query']->s );
 	}
 
-	function test_configuration_of_custom_query() {
+	public function test_configuration_of_custom_query() {
 		$posts = $this->create_posts();
 		$query = new WP_Query;
 		$config = array(
@@ -134,7 +137,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 	/**
 	 * @expectedDeprecated inject_query_posts
 	 */
-	function test_deprecated_function() {
+	public function test_deprecated_function() {
 		$posts = $this->create_posts();
 
 		$injected_posts = inject_query_posts( $posts );
@@ -142,7 +145,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertEquals( $posts, $injected_posts );
 	}
 
-	function test_preserving_query_obj() {
+	public function test_preserving_query_obj() {
 		$posts = $this->create_posts();
 
 		/* Prime the global wp_query with a search request */

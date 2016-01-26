@@ -1,15 +1,16 @@
 <?php
 /**
  * Plugin Name: Inject Query Posts
- * Version:     2.2.3
+ * Version:     2.2.4
  * Plugin URI:  http://coffee2code.com/wp-plugins/inject-query-posts/
  * Author:      Scott Reilly
  * Author URI:  http://coffee2code.com/
+ * Text Domain: inject-query-posts
  * License:     GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Description: Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
  *
- * Compatible with WordPress 3.6 through 4.3+.
+ * Compatible with WordPress 3.6 through 4.4+.
  *
  * NOTE: Injecting posts into a query object will cause that object to forget about previous posts it may have retrieved. You probably
  * only want to do this outside of any existing loops, and create your own custom loop after the injection.
@@ -18,18 +19,20 @@
  * =>> Also, visit the plugin's homepage for additional information and updates.
  * =>> Or visit: https://wordpress.org/plugins/inject-query-posts/
  *
- * TODO: (in 3.0)
- * 	* Rename $preserve_query_obj arg to $reset_query_obj. Leave default as true, which changes default behavior of the arg.
- * 	* Deprecate 'inject_query_posts_preserve_query_obj' filter and introduce 'c2c_inject_query_posts_reset_query_obj'
- * 	* Remove already deprecated inject_query_posts()
- *
  * @package Inject_Query_Posts
  * @author  Scott Reilly
  * @version 2.2.3
  */
 
 /*
-	Copyright (c) 2008-2015 by Scott Reilly (aka coffee2code)
+ * TODO: (in 3.0)
+ * - Rename $preserve_query_obj arg to $reset_query_obj. Leave default as true, which changes default behavior of the arg.
+ * - Deprecate 'inject_query_posts_preserve_query_obj' filter and introduce 'c2c_inject_query_posts_reset_query_obj'
+ * - Remove already deprecated inject_query_posts()
+ */
+
+/*
+	Copyright (c) 2008-2016 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
