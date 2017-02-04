@@ -145,6 +145,7 @@ Do:
 
 = () =
 * Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
+* Change: Enable more error output for unit tests.
 
 = 2.2.4 (2016-01-25) =
 * New: Create empty index.php to prevent files from being listed if web server has enabled directory listings.
