@@ -44,9 +44,9 @@ Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/inject-query-posts/) 
 
 == Installation ==
 
-1. Unzip `inject-query-posts.zip` inside the `/wp-content/plugins/` directory for your site (or install via the built-in WordPress plugin installer)
-1. Activate the plugin through the 'Plugins' admin menu in WordPress
-1. Use the `c2c_inject_query_posts()` function to inject an array of posts into a WP query object.  Specify the posts array as the first argument.  Configure the query object by passing an array as the second argument.  If specifying a WP query object, pass it as the third object; if not specified then the global wp_query object will be assumed.
+1. Install via the built-in WordPress plugin installer. Or download and unzip `inject-query-posts.zip` inside the plugins directory for your site (typically `wp-content/plugins/`)
+2. Activate the plugin through the 'Plugins' admin menu in WordPress
+3. Use the `c2c_inject_query_posts()` function to inject an array of posts into a WP query object.  Specify the posts array as the first argument.  Configure the query object by passing an array as the second argument.  If specifying a WP query object, pass it as the third object; if not specified then the global wp_query object will be assumed.
 
 
 == Template Tags ==
@@ -91,7 +91,7 @@ get_template_part( 'loop' );
 
 == Filters ==
 
-The plugin is further customizable via two hooks. Typically, these customizations would be put into your active theme's functions.php file, or used by another plugin.
+The plugin is further customizable via two hooks. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
 
 = inject_query_posts_preserve_query_obj (filter) =
 
@@ -148,6 +148,7 @@ Do:
 * Change: Enable more error output for unit tests.
 * Change: Minor unit test improvements.
 * Change: Note compatibility through WP 4.7+.
+* Change: Minor readme.txt improvements.
 * New: Add LICENSE file.
 * Change: Update copyright date (2017).
 
