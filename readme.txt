@@ -143,6 +143,9 @@ Do:
 
 == Changelog ==
 
+= () =
+* Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
+
 = 2.2.4 (2016-01-25) =
 * New: Create empty index.php to prevent files from being listed if web server has enabled directory listings.
 * New: Add 'Text Domain' header attribute.
