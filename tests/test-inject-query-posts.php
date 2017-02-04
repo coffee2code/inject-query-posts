@@ -177,7 +177,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 
 		$this->assertEquals( $injected, $injected_posts );
 		$this->assertEquals( $injected, $wp_query->posts );
-		$this->assertQueryTrue( '' );
+		$this->assertFalse( is_search() );
 	}
 
 }
