@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 4.7
-Stable tag: 2.2.4
+Stable tag: 2.2.5
 
 Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
 
@@ -143,7 +143,7 @@ Do:
 
 == Changelog ==
 
-= () =
+= 2.2.5 (2017-02-03) =
 * Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
 * Change: Enable more error output for unit tests.
 * Change: Minor unit test improvements.
@@ -247,6 +247,9 @@ Do:
 
 
 == Upgrade Notice ==
+
+= 2.2.5 =
+Trivial update: noted compatibility through WP 4.7+, updated unit test bootstrap, minor documentation tweaks, updated copyright date
 
 = 2.2.4 =
 Trivial update: minor unit test tweaks; verified compatibility through WP 4.4+; and updated copyright date (2016)
