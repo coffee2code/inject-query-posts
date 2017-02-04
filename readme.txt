@@ -5,7 +5,7 @@ Tags: wp_query, query, posts, loop, template tags, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 4.4
+Tested up to: 4.7
 Stable tag: 2.2.4
 
 Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
@@ -147,6 +147,7 @@ Do:
 * Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
 * Change: Enable more error output for unit tests.
 * Change: Minor unit test improvements.
+* Change: Note compatibility through WP 4.7+.
 * New: Add LICENSE file.
 * Change: Update copyright date (2017).
 
