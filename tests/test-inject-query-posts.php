@@ -130,8 +130,8 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertFalse( is_search() );
 		$this->assertTrue( $query->is_search );
 		$this->assertFalse( $GLOBALS['wp_query']->is_search );
-		$this->assertEquals( 'cat', $query->query_vars['s'] );
-		$this->assertEmpty( $GLOBALS['wp_query']->query_vars['s'] );
+		$this->assertEquals( 'cat', $query->get( 's' ) );
+		$this->assertEmpty( get_query_var( 's' ) );
 	}
 
 	/**
@@ -155,7 +155,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		global $wp_query;
 		$this->assertTrue( is_search() );
 		$this->assertQueryTrue( 'is_search' );
-		$this->assertEquals( 'third', $GLOBALS['wp_query']->query_vars['s'] );
+		$this->assertEquals( 'third', get_query_var( 's' ) );
 		$this->assertEquals( array ( $posts[2] ), $wp_query->posts );
 		$this->assertEquals( 1, $wp_query->post_count );
 
