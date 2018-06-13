@@ -144,6 +144,7 @@ Do:
 == Changelog ==
 
 = () =
+* New: Add README.md
 * Unit tests:
     * Change: Make local copy of `assertQueryTrue()`; apparently it's (now?) a test-specific assertion and not a globally aware assertion
     * Change: Minor whitespace tweaks to bootstrap

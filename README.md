@@ -1,0 +1,27 @@
+# Inject Query Posts
+
+A plugin for WordPress that facilitates injecting an array of posts into a WP query object as if queried; particularly useful to allow use of standard template tags.
+
+This plugin is available in the WordPress Plugin Directory: https://wordpress.org/plugins/inject-query-posts/
+
+
+## Installation
+
+1. Install via the built-in WordPress plugin installer. Or install the plugin code inside the plugins directory for your site (typically `/wp-content/plugins/`).
+2. Activate the plugin through the 'Plugins' admin menu in WordPress
+3. Use the `c2c_inject_query_posts()` function to inject an array of posts into a WP query object. Specify the posts array as the first argument. Configure the query object by passing an array as the second argument. If specifying a WP query object, pass it as the third object; if not specified then the global wp_query object will be assumed.
+
+
+## Additional Documentation
+
+See [readme.txt](https://github.com/coffee2code/inject-query-posts/blob/master/readme.txt) for additional usage information.
+
+
+## Support
+
+Commercial support and custom development are not presently available. You can raise an [issue](https://github.com/coffee2code/inject-query-posts/issues) on GitHub or post in the [plugin's support forum on WordPress.org](https://wordpress.org/support/plugin/inject-query-posts/). If the plugin has been of benefit to you, how about [submitting a review](https://wordpress.org/support/plugin/inject-query-posts/reviews/) for it in the WordPress Plugin Directory or considering a [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6ARCFJ9TX3522)?
+
+
+## License
+
+This plugin is free software; you can redistribute it and/or modify it under the terms of the [GNU General Public License](http://www.gnu.org/licenses/gpl-2.0.html) as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
