@@ -10,7 +10,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Description: Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
  *
- * Compatible with WordPress 3.6 through 4.7+.
+ * Compatible with WordPress 3.6 through 4.9+.
  *
  * NOTE: Injecting posts into a query object will cause that object to forget about previous posts it may have retrieved. You probably
  * only want to do this outside of any existing loops, and create your own custom loop after the injection.

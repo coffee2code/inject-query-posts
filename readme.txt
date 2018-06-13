@@ -5,7 +5,7 @@ Tags: wp_query, query, posts, loop, template tags, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 4.7
+Tested up to: 4.9
 Stable tag: 2.2.5
 
 Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
@@ -144,6 +144,7 @@ Do:
 == Changelog ==
 
 = () =
+* Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 
 = 2.2.5 (2017-02-03) =
