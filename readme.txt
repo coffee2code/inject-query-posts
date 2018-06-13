@@ -8,10 +8,12 @@ Requires at least: 3.6
 Tested up to: 4.9
 Stable tag: 2.2.5
 
-Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
+Facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
 
 
 == Description ==
+
+This plugin provides a function for use by developers who have their own code for fetching posts according to a given criteria and now want to make use of loop-aware template tags to display those posts.
 
 WordPress's template tags are intended to be used within 'the loop'. The loop is managed by a WP_Query object which sets up various global variables and its own object variables for use by the various template tags. The primary purpose of a WP_Query object is to actually query the database for the posts that match the currently specified criteria. However, if you don't need to query for posts since you already have them by some other means, you can still take advantage of the template tags by injecting those posts into the WP_Query via this plugin.
 
@@ -148,6 +150,7 @@ Do:
 * Unit tests:
     * Change: Make local copy of `assertQueryTrue()`; apparently it's (now?) a test-specific assertion and not a globally aware assertion
     * Change: Minor whitespace tweaks to bootstrap
+* Change: Tweak plugin descrition
 * Change: Add GitHub link to readme
 * Change: Modify formatting of hook name in readme to prevent being uppercased when shown in the Plugin Directory
 * Change: Note compatibility through WP 4.9+

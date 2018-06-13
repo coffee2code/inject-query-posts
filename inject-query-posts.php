@@ -8,7 +8,7 @@
  * Text Domain: inject-query-posts
  * License:     GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Description: Inject an array of posts into a WP query object as if queried, particularly useful to allow use of standard template tags.
+ * Description: Facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
  *
  * Compatible with WordPress 3.6 through 4.9+.
  *

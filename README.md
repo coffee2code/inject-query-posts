@@ -1,6 +1,6 @@
 # Inject Query Posts
 
-A plugin for WordPress that facilitates injecting an array of posts into a WP query object as if queried; particularly useful to allow use of standard template tags.
+A plugin for WordPress that facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
 
 This plugin is available in the WordPress Plugin Directory: https://wordpress.org/plugins/inject-query-posts/
 
