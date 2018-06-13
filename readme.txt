@@ -93,7 +93,7 @@ get_template_part( 'loop' );
 
 The plugin is further customizable via two hooks. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
 
-= inject_query_posts_preserve_query_obj (filter) =
+**inject_query_posts_preserve_query_obj (filter)**
 
 The 'inject_query_posts_preserve_query_obj' filter allows you override the value of the `$preserve_query_obj` argument passed to the function. This is not typical usage for most users.
 
@@ -122,7 +122,7 @@ function my_preserve_query_obj( $preserve_query_obj, $query_obj, $posts, $config
 add_filter( 'inject_query_posts_preserve_query_obj', 'my_preserve_query_obj', 10, 4 );
 `
 
-= c2c_inject_query_posts (filter) =
+**c2c_inject_query_posts (filter)**
 
 The 'c2c_inject_query_posts' filter allows you to use an alternative approach to safely invoke `c2c_inject_query_posts()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.
 
@@ -148,6 +148,7 @@ Do:
     * Change: Make local copy of `assertQueryTrue()`; apparently it's (now?) a test-specific assertion and not a globally aware assertion
     * Change: Minor whitespace tweaks to bootstrap
 * Change: Add GitHub link to readme
+* Change: Modify formatting of hook name in readme to prevent being uppercased when shown in the Plugin Directory
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 
