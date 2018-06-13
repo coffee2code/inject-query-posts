@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 4.9
-Stable tag: 2.2.5
+Stable tag: 2.2.6
 
 Facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
 
@@ -145,7 +145,7 @@ Do:
 
 == Changelog ==
 
-= () =
+= 2.2.6 (2018-06-12) =
 * New: Add README.md
 * Unit tests:
     * Change: Make local copy of `assertQueryTrue()`; apparently it's (now?) a test-specific assertion and not a globally aware assertion
@@ -260,6 +260,9 @@ Do:
 
 
 == Upgrade Notice ==
+
+= 2.2.6 =
+Trivial update: fixed broken unit test, added README.md, noted compatibility through WP 4.9+, and updated copyright date (2018)
 
 = 2.2.5 =
 Trivial update: noted compatibility through WP 4.7+, updated unit test bootstrap, minor documentation tweaks, updated copyright date
