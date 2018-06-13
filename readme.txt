@@ -143,6 +143,9 @@ Do:
 
 == Changelog ==
 
+= () =
+* Change: Update copyright date (2018)
+
 = 2.2.5 (2017-02-03) =
 * Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
 * Change: Enable more error output for unit tests.
