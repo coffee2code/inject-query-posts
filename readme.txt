@@ -39,7 +39,7 @@ if ( have_posts() ) :
 
 `
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/inject-query-posts/) | [Plugin Directory Page](https://wordpress.org/plugins/inject-query-posts/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/inject-query-posts/) | [Plugin Directory Page](https://wordpress.org/plugins/inject-query-posts/) | [GitHub](https://github.com/coffee2code/inject-query-posts/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -144,6 +144,7 @@ Do:
 == Changelog ==
 
 = () =
+* Change: Add GitHub link to readme
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 
