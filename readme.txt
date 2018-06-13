@@ -145,6 +145,7 @@ Do:
 
 = () =
 * Unit tests:
+    * Change: Make local copy of `assertQueryTrue()`; apparently it's (now?) a test-specific assertion and not a globally aware assertion
     * Change: Minor whitespace tweaks to bootstrap
 * Change: Add GitHub link to readme
 * Change: Note compatibility through WP 4.9+
