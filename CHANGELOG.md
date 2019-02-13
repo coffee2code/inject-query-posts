@@ -2,6 +2,7 @@
 
 ## _(in-progress)_
 * New: Add CHANGELOG.md and move all but most recent changelog entries into it
+* Change: Update copyright date (2019)
 * Change: Update License URI to be HTTPS
 
 ## 2.2.6 _(2018-06-12)_
