@@ -91,7 +91,7 @@ get_template_part( 'loop' );
 ?>
 `
 
-== Filters ==
+== Hooks ==
 
 The plugin is further customizable via two hooks. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
 
