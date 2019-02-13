@@ -4,6 +4,7 @@
 * New: Add CHANGELOG.md and move all but most recent changelog entries into it
 * Change: Update copyright date (2019)
 * Change: Update License URI to be HTTPS
+* Change: Split paragraph in README.md's "Support" section into two
 
 ## 2.2.6 _(2018-06-12)_
 * New: Add README.md
