@@ -6,6 +6,8 @@
 * Unit tests:
     * Change: Update unit test install script and bootstrap to use latest WP unit test repo
     * Change: Stop testing `is_comments_popup()` due to its deprecation
+* Fix: Correct inline documentation for function parameter defaults
+* Change: Reformat function docblocks for better line-wrapping
 * Change: Update copyright date (2019)
 * Change: Update License URI to be HTTPS
 * Change: Rename readme.txt section from 'Filters' to 'Hooks'

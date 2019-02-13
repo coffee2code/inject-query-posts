@@ -71,13 +71,22 @@ if ( ! function_exists( 'c2c_inject_query_posts' ) ) :
  * NOTE: In order for 'query' to be configured via $config, $preserve_query_obj
  * must be false.
  *
- * @param array         $posts              Array of posts to inject into the query object.
- * @param array         $config             Optional. Associative array of query object variables to directly set, and their values.
- * @param WP_Query|null $query_obj          Optional. The query object to modify. If null, then the global wp_query object will be
- *                                          used. Pass a string or non-zero integer to have a new query object created and used.
- * @param bool          $preserve_query_obj Optional. Should the query object be kept as-is prior to injecting posts? Default is true.
- *                                          If false, then the object is re-initialized/reset.
- * @param bool          $cache_posts        Optional. Update the posts in cache? Default is true.
+ * @param array         $posts              Array of posts to inject into the
+ *                                          query object.
+ * @param array         $config             Optional. Associative array of query
+ *                                          object variables to directly set, and
+ *                                          their values. Default [].
+ * @param WP_Query|null $query_obj          Optional. The query object to modify.
+ *                                          If null, then the global wp_query
+ *                                          object will be used. Pass a string or
+ *                                          non-zero integer to have a new query
+ *                                          object created and used. Default null.
+ * @param bool          $preserve_query_obj Optional. Should the query object be
+ *                                          kept as-is prior to injecting posts?
+ *                                          If false, then the object is
+ *                                          re-initialized/reset. Default false.
+ * @param bool          $cache_posts        Optional. Update the posts in cache?
+ *                                          Default false.
  * @return array        The originally passed in array of posts.
  */
 function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $preserve_query_obj = false, $cache_posts = true ) {
