@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 5.1
-Stable tag: 2.2.6
+Stable tag: 2.2.7
 
 Facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
 
@@ -145,6 +145,20 @@ Do:
 
 == Changelog ==
 
+= 2.2.7 (2019-02-13) =
+* New: Add CHANGELOG.md and move all but most recent changelog entries into it
+* Change: Cast return value of `inject_query_posts_preserve_query_obj` as boolean
+* Change: Note compatibility through WP 5.1+
+* Unit tests:
+    * Change: Update unit test install script and bootstrap to use latest WP unit test repo
+    * Change: Stop testing `is_comments_popup()` due to its deprecation
+* Fix: Correct inline documentation for function parameter defaults
+* Change: Reformat function docblocks for better line-wrapping
+* Change: Update copyright date (2019)
+* Change: Update License URI to be HTTPS
+* Change: Rename readme.txt section from 'Filters' to 'Hooks'
+* Change: Split paragraph in README.md's "Support" section into two
+
 = 2.2.6 (2018-06-12) =
 * New: Add README.md
 * Unit tests:
@@ -169,6 +183,9 @@ Do:
 
 
 == Upgrade Notice ==
+
+= 2.2.7 =
+Trivial update: created CHANGELOG.md to store historical changelog outside of readme.txt, updated unit test initialization, noted compatibility through WP 5.1+, and updated copyright date (2019)
 
 = 2.2.6 =
 Trivial update: fixed broken unit test, added README.md, noted compatibility through WP 4.9+, and updated copyright date (2018)
