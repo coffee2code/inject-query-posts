@@ -179,7 +179,7 @@ Do:
 * New: Add LICENSE file.
 * Change: Update copyright date (2017).
 
-= Full changelog is available in [CHANGELOG.md](CHANGELOG.md). =
+_Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/inject-query-posts/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
