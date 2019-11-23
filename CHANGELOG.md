@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 2.2.8 _(2019-11-22)_
 * Change: Note compatibility through WP 5.3+
 * Change: Use full URL for readme.txt link to full changelog
 * Change: Unit tests: Change method signature of `assertQueryTrue()` to match parent's update to use the spread operator

@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 5.3
-Stable tag: 2.2.7
+Stable tag: 2.2.8
 
 Facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
 
@@ -145,6 +145,12 @@ Do:
 
 == Changelog ==
 
+= 2.2.8 (2019-11-22) =
+* Change: Note compatibility through WP 5.3+
+* Change: Use full URL for readme.txt link to full changelog
+* Change: Unit tests: Change method signature of `assertQueryTrue()` to match parent's update to use the spread operator
+* Change: Update copyright date (2020)
+
 = 2.2.7 (2019-02-13) =
 * New: Add CHANGELOG.md and move all but most recent changelog entries into it
 * Change: Cast return value of `inject_query_posts_preserve_query_obj` as boolean
@@ -170,19 +176,13 @@ Do:
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 
-= 2.2.5 (2017-02-03) =
-* Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
-* Change: Enable more error output for unit tests.
-* Change: Minor unit test improvements.
-* Change: Note compatibility through WP 4.7+.
-* Change: Minor readme.txt improvements.
-* New: Add LICENSE file.
-* Change: Update copyright date (2017).
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/inject-query-posts/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 2.2.8 =
+Trivial update: noted compatibility through WP 5.3+ and updated copyright date (2020).
 
 = 2.2.7 =
 Trivial update: created CHANGELOG.md to store historical changelog outside of readme.txt, updated unit test initialization, noted compatibility through WP 5.1+, and updated copyright date (2019)
