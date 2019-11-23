@@ -43,7 +43,7 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 	 *
 	 * @param string $prop,... Any number of WP_Query properties that are expected to be true for the current request.
 	 */
-	public function assertQueryTrue(/* ... */) {
+	public function assertQueryTrue( ...$prop ) {
 		global $wp_query;
 		$all = array(
 			'is_single', 'is_preview', 'is_page', 'is_archive', 'is_date', 'is_year', 'is_month', 'is_day', 'is_time',

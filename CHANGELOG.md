@@ -3,6 +3,7 @@
 ## _(in-progress)_
 * Change: Note compatibility through WP 5.3+
 * Change: Use full URL for readme.txt link to full changelog
+* Change: Unit tests: Change method signature of `assertQueryTrue()` to match parent's update to use the spread operator
 * Change: Update copyright date (2020)
 
 ## 2.2.7 _(2019-02-13)_
