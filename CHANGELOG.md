@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Note compatibility through WP 5.3+
+
 ## 2.2.7 _(2019-02-13)_
 * New: Add CHANGELOG.md and move all but most recent changelog entries into it
 * Change: Cast return value of `inject_query_posts_preserve_query_obj` as boolean
