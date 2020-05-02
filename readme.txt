@@ -41,7 +41,7 @@ if ( have_posts() ) :
 
 `
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/inject-query-posts/) | [Plugin Directory Page](https://wordpress.org/plugins/inject-query-posts/) | [GitHub](https://github.com/coffee2code/inject-query-posts/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](https://coffee2code.com/wp-plugins/inject-query-posts/) | [Plugin Directory Page](https://wordpress.org/plugins/inject-query-posts/) | [GitHub](https://github.com/coffee2code/inject-query-posts/) | [Author Homepage](https://coffee2code.com)
 
 
 == Installation ==

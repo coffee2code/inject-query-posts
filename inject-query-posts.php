@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Inject Query Posts
  * Version:     2.2.8
- * Plugin URI:  http://coffee2code.com/wp-plugins/inject-query-posts/
+ * Plugin URI:  https://coffee2code.com/wp-plugins/inject-query-posts/
  * Author:      Scott Reilly
- * Author URI:  http://coffee2code.com/
+ * Author URI:  https://coffee2code.com/
  * Text Domain: inject-query-posts
  * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html

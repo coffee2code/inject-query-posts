@@ -2,6 +2,7 @@
 
 ## _(in-progress)_
 * Change: Note compatibility through WP 5.4+
+* Change: Update links to coffee2code.com to be HTTPS
 
 ## 2.2.8 _(2019-11-22)_
 * Change: Note compatibility through WP 5.3+
