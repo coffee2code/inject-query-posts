@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Note compatibility through WP 5.4+
+
 ## 2.2.8 _(2019-11-22)_
 * Change: Note compatibility through WP 5.3+
 * Change: Use full URL for readme.txt link to full changelog
