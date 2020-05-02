@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Inject Query Posts
- * Version:     2.2.8
+ * Version:     2.2.9
  * Plugin URI:  https://coffee2code.com/wp-plugins/inject-query-posts/
  * Author:      Scott Reilly
  * Author URI:  https://coffee2code.com/
@@ -21,11 +21,12 @@
  *
  * @package Inject_Query_Posts
  * @author  Scott Reilly
- * @version 2.2.8
+ * @version 2.2.9
  */
 
 /*
  * TODO: (in 3.0)
+ * - Cast first argument to 'inject_query_posts_preserve_query_obj' filter as bool
  * - Rename $preserve_query_obj arg to $reset_query_obj. Leave default as true, which changes default behavior of the arg.
  * - Deprecate 'inject_query_posts_preserve_query_obj' filter and introduce 'c2c_inject_query_posts_reset_query_obj'
  * - Remove already deprecated inject_query_posts()

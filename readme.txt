@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 5.4
-Stable tag: 2.2.8
+Stable tag: 2.2.9
 
 Facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
 
@@ -145,6 +145,11 @@ Do:
 
 == Changelog ==
 
+= 2.2.9 (2020-05-01) =
+* Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
+* Change: Note compatibility through WP 5.4+
+* Change: Update links to coffee2code.com to be HTTPS
+
 = 2.2.8 (2019-11-22) =
 * Change: Note compatibility through WP 5.3+
 * Change: Use full URL for readme.txt link to full changelog
@@ -165,21 +170,13 @@ Do:
 * Change: Rename readme.txt section from 'Filters' to 'Hooks'
 * Change: Split paragraph in README.md's "Support" section into two
 
-= 2.2.6 (2018-06-12) =
-* New: Add README.md
-* Unit tests:
-    * Change: Make local copy of `assertQueryTrue()`; apparently it's (now?) a test-specific assertion and not a globally aware assertion
-    * Change: Minor whitespace tweaks to bootstrap
-* Change: Tweak plugin descrition
-* Change: Add GitHub link to readme
-* Change: Modify formatting of hook name in readme to prevent being uppercased when shown in the Plugin Directory
-* Change: Note compatibility through WP 4.9+
-* Change: Update copyright date (2018)
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/inject-query-posts/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 2.2.9 =
+Trivial update: Updated a few URLs to be HTTPS and noted compatibility through WP 5.4+.
 
 = 2.2.8 =
 Trivial update: noted compatibility through WP 5.3+ and updated copyright date (2020).
