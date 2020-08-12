@@ -25,14 +25,6 @@
  */
 
 /*
- * TODO: (in 3.0)
- * - Cast first argument to 'inject_query_posts_preserve_query_obj' filter as bool
- * - Rename $preserve_query_obj arg to $reset_query_obj. Leave default as true, which changes default behavior of the arg.
- * - Deprecate 'inject_query_posts_preserve_query_obj' filter and introduce 'c2c_inject_query_posts_reset_query_obj'
- * - Remove already deprecated inject_query_posts()
- */
-
-/*
 	Copyright (c) 2008-2020 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
