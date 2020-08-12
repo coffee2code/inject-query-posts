@@ -85,6 +85,20 @@ if ( ! function_exists( 'c2c_inject_query_posts' ) ) :
 function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $preserve_query_obj = false, $cache_posts = true ) {
 	$posts = is_array( $posts ) ? $posts : array( $posts );
 
+	/**
+	 * Filters if the query object should be kept as-is prior to injecting posts.
+	 *
+	 * If the query object is not preserved, it will be reinitialized.
+	 *
+	 * @since 2.0
+	 *
+	 * @param bool     $preserve  Preserve the current state of the query object?
+	 *                            Default false.
+	 * @param WP_Query $query_obj The query object to modify.
+	 * @param array    $posts     Posts to be injected into the query object.
+	 * @param array    $config    Associative array of query object variables to
+	 *                            directly set, and their values.
+	 */
 	$preserve_query_obj = (bool) apply_filters( 'inject_query_posts_preserve_query_obj', (bool) $preserve_query_obj, $query_obj, $posts, $config );
 
 	if ( ! $query_obj ) {
