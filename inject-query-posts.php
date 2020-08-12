@@ -85,6 +85,17 @@ if ( ! function_exists( 'c2c_inject_query_posts' ) ) :
 function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $preserve_query_obj = false, $cache_posts = true ) {
 	$posts = is_array( $posts ) ? $posts : array( $posts );
 
+	if ( ! $query_obj ) {
+		global $wp_query;
+		$query_obj = $wp_query;
+	}
+
+	if ( ! is_object( $query_obj ) ) {
+		$query_obj = new WP_Query();
+	}
+
+	$query_obj->current_post = -1;
+
 	/**
 	 * Filters if the query object should be kept as-is prior to injecting posts.
 	 *
@@ -100,17 +111,6 @@ function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $
 	 *                            directly set, and their values.
 	 */
 	$preserve_query_obj = (bool) apply_filters( 'inject_query_posts_preserve_query_obj', (bool) $preserve_query_obj, $query_obj, $posts, $config );
-
-	if ( ! $query_obj ) {
-		global $wp_query;
-		$query_obj = $wp_query;
-	}
-
-	if ( ! is_object( $query_obj ) ) {
-		$query_obj = new WP_Query();
-	}
-
-	$query_obj->current_post = -1;
 
 	// Initialize the query object
 	if ( ! $preserve_query_obj ) {
