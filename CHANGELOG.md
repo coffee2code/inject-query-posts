@@ -3,6 +3,7 @@
 ## _(in-progress)_
 * New: Add TODO.md and move existing TODO list from top of main plugin file into it
 * Change: Remove long-deprecated `inject_query_posts()`
+* Change: Cast first argument to `inject_query_posts_preserve_query_obj` filter as bool
 * Change: Note compatibility through WP 5.5+
 
 ## 2.2.9 _(2020-05-01)_

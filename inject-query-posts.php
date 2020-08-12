@@ -85,7 +85,7 @@ if ( ! function_exists( 'c2c_inject_query_posts' ) ) :
 function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $preserve_query_obj = false, $cache_posts = true ) {
 	$posts = is_array( $posts ) ? $posts : array( $posts );
 
-	$preserve_query_obj = (bool) apply_filters( 'inject_query_posts_preserve_query_obj', $preserve_query_obj, $query_obj, $posts, $config );
+	$preserve_query_obj = (bool) apply_filters( 'inject_query_posts_preserve_query_obj', (bool) $preserve_query_obj, $query_obj, $posts, $config );
 
 	if ( ! $query_obj ) {
 		global $wp_query;
