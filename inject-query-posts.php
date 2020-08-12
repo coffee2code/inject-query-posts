@@ -142,18 +142,3 @@ function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $
 }
 add_filter( 'c2c_inject_query_posts', 'c2c_inject_query_posts', 10, 5 );
 endif;
-
-
-if ( ! function_exists( 'inject_query_posts' ) ) :
-	/**
-	 * Injects an array of posts into a query object as if that query object had
-	 * obtained those posts via a query.
-	 *
-	 * @since 1.0
-	 * @deprecated 2.1 Use c2c_inject_query_posts() instead
-	 */
-	function inject_query_posts( $posts, $config = array(), $query_obj = null, $preserve_query_obj = true ) {
-		_deprecated_function( 'inject_query_posts', '2.1', 'c2c_inject_query_posts' );
-		return c2c_inject_query_posts( $posts, $config, $query_obj, $preserve_query_obj );
-	}
-endif;

@@ -181,17 +181,6 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertEmpty( get_query_var( 's' ) );
 	}
 
-	/**
-	 * @expectedDeprecated inject_query_posts
-	 */
-	public function test_deprecated_function() {
-		$posts = $this->create_posts();
-
-		$injected_posts = inject_query_posts( $posts );
-
-		$this->assertEquals( $posts, $injected_posts );
-	}
-
 	public function test_preserving_query_obj() {
 		$posts = $this->create_posts();
 
