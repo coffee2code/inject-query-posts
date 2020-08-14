@@ -87,7 +87,7 @@ if ( ! function_exists( 'c2c_inject_query_posts' ) ) :
  * @return array        The originally passed in array of posts.
  */
 function c2c_inject_query_posts( $posts, $args = array() ) {
-
+	// Default config array options. Order matters for first 4 items.
 	$defaults = array(
 		'config'             => array(),
 		'query_obj'          => null,
@@ -95,12 +95,12 @@ function c2c_inject_query_posts( $posts, $args = array() ) {
 		'cache_posts'        => true,
 	);
 
-	// If it's a legacy invocation...
+	// Convert legacy argument invocation into args array.
 	if (
-		// ...due to more than 2 args.
+		// More than 2 args.
 		func_num_args() > 2
 	||
-		// ...due to exactly 2 args but second arg doesn't set any configurable values.
+		// Exactly 2 args but second arg doesn't set any configurable values.
 		( $args && ! array_intersect_key( $args, $defaults ) )
 	) {
 		$func_args = func_get_args();
@@ -159,6 +159,7 @@ function c2c_inject_query_posts( $posts, $args = array() ) {
 		}
 	}
 
+	// Prevent the override of certain WP_Query object variables via $config.
 	foreach ( (array) $config as $key => $value ) {
 		if ( in_array( $key, array( 'query', 'update_post_meta_cache', 'update_post_term_cache' ) ) ) {
 			continue;
@@ -169,6 +170,7 @@ function c2c_inject_query_posts( $posts, $args = array() ) {
 	// Load the posts into the query object
 	$query_obj->posts = array_map( 'get_post', $posts );
 
+	// Handle post cache updates.
 	if ( $cache_posts ) {
 		update_post_caches(
 			$query_obj->posts,
@@ -178,17 +180,20 @@ function c2c_inject_query_posts( $posts, $args = array() ) {
 		);
 	}
 
+	// Set post counts.
 	$query_obj->post_count = count( $query_obj->posts );
 	if ( $query_obj->post_count > 0 ) {
 		$query_obj->post = $query_obj->posts[0];
 		$query_obj->found_posts = $query_obj->post_count;
 	}
 
-	if ( ! isset( $config['is_404'] ) ) { // Unless explicitly told to be a 404, don't be a 404
+	// Unless explicitly told to be a 404, don't be a 404.
+	if ( ! isset( $config['is_404'] ) ) {
 		$query_obj->is_404 = false;
 	}
 
-	$wp_query = $query_obj; // This only has effect if $wp_query was previously declared global
+	// This only has effect if $wp_query was previously declared global.
+	$wp_query = $query_obj;
 
 	return $posts;
 }

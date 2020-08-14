@@ -12,6 +12,7 @@
 * Change: Move `inject_query_posts_preserve_query_obj` filter until after a query object has been obtained
 * Change: Restructure unit test file structure
 * Change: Note compatibility through WP 5.5+
+* Change: Add and update some inline documentation
 
 ## 2.2.9 _(2020-05-01)_
 * Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
