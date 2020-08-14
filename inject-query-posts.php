@@ -64,25 +64,63 @@ if ( ! function_exists( 'c2c_inject_query_posts' ) ) :
  * NOTE: In order for 'query' to be configured via $config, $preserve_query_obj
  * must be false.
  *
- * @param array         $posts              Array of posts to inject into the
- *                                          query object.
- * @param array         $config             Optional. Associative array of query
- *                                          object variables to directly set, and
- *                                          their values. Default [].
- * @param WP_Query|null $query_obj          Optional. The query object to modify.
- *                                          If null, then the global wp_query
- *                                          object will be used. Pass a string or
- *                                          non-zero integer to have a new query
- *                                          object created and used. Default null.
- * @param bool          $preserve_query_obj Optional. Should the query object be
- *                                          kept as-is prior to injecting posts?
- *                                          If false, then the object is
- *                                          re-initialized/reset. Default false.
- * @param bool          $cache_posts        Optional. Update the posts in cache?
- *                                          Default false.
+ * @param array $posts Array of posts to inject into the
+ *                     query object.
+ * @param array $args  {
+ *     Associative array of configuration options.
+ *
+ *     @type array         $config             Optional. Associative array of query
+ *                                             object variables to directly set, and
+ *                                             their values. Default [].
+ *     @type WP_Query|null $query_obj          Optional. The query object to modify.
+ *                                             If null, then the global wp_query
+ *                                             object will be used. Pass a string or
+ *                                             non-zero integer to have a new query
+ *                                             object created and used. Default null.
+ *     @type bool          $preserve_query_obj Optional. Should the query object be
+ *                                             kept as-is prior to injecting posts?
+ *                                             If false, then the object is
+ *                                             re-initialized/reset. Default false.
+ *     @type bool          $cache_posts        Optional. Update the posts in cache?
+ *                                             Default false.
+ * }
  * @return array        The originally passed in array of posts.
  */
-function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $preserve_query_obj = false, $cache_posts = true ) {
+function c2c_inject_query_posts( $posts, $args = array() ) {
+
+	$defaults = array(
+		'config'             => array(),
+		'query_obj'          => null,
+		'preserve_query_obj' => false,
+		'cache_posts'        => true,
+	);
+
+	// If it's a legacy invocation...
+	if (
+		// ...due to more than 2 args.
+		func_num_args() > 2
+	||
+		// ...due to exactly 2 args but second arg doesn't set any configurable values.
+		( $args && ! array_intersect_key( $args, $defaults ) )
+	) {
+		$func_args = func_get_args();
+		$args = array();
+		foreach ( array_keys( $defaults ) as $i => $key ) {
+			// Offset by 1 since first arg is $posts.
+			$j = $i + 1;
+			if ( ! empty( $func_args[ $j ] ) ) {
+				$args[ $key ] = $func_args[ $j ];
+			}
+		}
+	}
+
+	$args = wp_parse_args( $args, $defaults );
+
+	// Safer version of `extract()`.
+	foreach ( array_keys( $defaults ) as $key ) {
+		$$key = $args[ $key ];
+	}
+
 	$posts = is_array( $posts ) ? $posts : array( $posts );
 
 	if ( ! $query_obj ) {

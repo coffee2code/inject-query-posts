@@ -57,7 +57,7 @@ The plugin provides one template tag for use in your theme templates, functions.
 
 = Functions =
 
-* `<?php function c2c_inject_query_posts( $posts, $config = array(), $query_obj = null, $preserve_query_obj = true, $cache_posts = true ) ?>`
+* `<?php function c2c_inject_query_posts( $posts, $args = array() ) ?>`
 Injects an array of posts into a query object as if that query object had obtained those posts via a query.
 
 = Arguments =
@@ -65,17 +65,19 @@ Injects an array of posts into a query object as if that query object had obtain
 * `$posts` (array)
 Array of posts to inject into the query object.
 
-* `$config` (array)
-Optional.  Associative array of query object variables to directly set, and their values.
+* `$args` (array)
+Optional. Associative array of configuration options. Available options:
+    * `$config` (array)
+    Associative array of query object variables to directly set, and their values.
 
-* `$query_obj` (WP_Query|null)
-Optional.  The query object to modify. If null, then the global wp_query object will be used. Pass a string or non-zero integer to have a new query object created and used.
+    * `$query_obj` (WP_Query|null)
+    The query object to modify. If null, then the global wp_query object will be used. Pass a string or non-zero integer to have a new query object created and used.
 
-* `$preserve_query_obj` (bool)
-Optional.  Should the query object be kept as-is prior to injecting posts? Default is false. If false, then the object is re-initialized/reset before post injection.
+    * `$preserve_query_obj` (bool)
+    Should the query object be kept as-is prior to injecting posts? Default is false. If false, then the object is re-initialized/reset before post injection.
 
-* `$cache_posts` (bool)
-Optional.  Update the posts in cache? Default is true.
+    * `$cache_posts` (bool)
+    Update the posts in cache? Default is true.
 
 = Examples =
 

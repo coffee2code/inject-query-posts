@@ -135,12 +135,14 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertEquals( $posts, $injected_posts );
 	}
 
-	public function test_works_on_custom_wp_query() {
+	public function test_works_on_custom_wp_query( $as_legacy = false ) {
 		$posts = $this->create_posts();
 		$posts = array_slice( $posts, 0, 2 ); // Only grab first 2 for this test
 		$query = new WP_Query;
 
-		$injected_posts = c2c_inject_query_posts( $posts, array(), $query );
+		$injected_posts = $as_legacy
+			? c2c_inject_query_posts( $posts, array(), $query )
+			: c2c_inject_query_posts( $posts, array( 'query_obj' => $query ) );
 
 		$this->assertTrue( $query->have_posts() );
 		$this->assertEquals( 2, $query->post_count );
@@ -149,14 +151,20 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertNotEquals( $GLOBALS['wp_query'], $query );
 	}
 
-	public function test_configuration_of_wp_query() {
+	public function test_legacy_works_on_custom_wp_query() {
+		$this->test_works_on_custom_wp_query( true );
+	}
+
+	public function test_configuration_of_wp_query( $as_legacy = false ) {
 		$posts = $this->create_posts();
 		$config = array(
 			'is_search' => true,
 			's' => 'dog',
 		);
 
-		$injected_posts = c2c_inject_query_posts( $posts, $config );
+		$injected_posts = $as_legacy
+			? c2c_inject_query_posts( $posts, $config )
+			: c2c_inject_query_posts( $posts, array( 'config' => $config ) );
 
 		$this->assertTrue( is_search() );
 		$this->assertQueryTrue( 'is_search' );
@@ -164,7 +172,11 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertEquals( 'dog', $GLOBALS['wp_query']->s );
 	}
 
-	public function test_configuration_of_custom_query() {
+	public function test_legacy_configuration_of_wp_query() {
+		$this->test_configuration_of_wp_query( true );
+	}
+
+	public function test_configuration_of_custom_query( $as_legacy = false ) {
 		$posts = $this->create_posts();
 		$query = new WP_Query;
 		$config = array(
@@ -172,7 +184,9 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 			'query_vars' => array( 's' => 'cat' ),
 		);
 
-		$injected_posts = c2c_inject_query_posts( $posts[0], $config, $query, false );
+		$injected_posts = $as_legacy
+			? c2c_inject_query_posts( $posts[0], $config, $query, false )
+			: c2c_inject_query_posts( $posts[0], array( 'config' => $config, 'query_obj' => $query, 'preserve_query_obj' => false ) );
 
 		$this->assertFalse( is_search() );
 		$this->assertTrue( $query->is_search );
@@ -181,7 +195,11 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertEmpty( get_query_var( 's' ) );
 	}
 
-	public function test_preserving_query_obj() {
+	public function test_legacy_configuration_of_custom_query() {
+		$this->test_configuration_of_custom_query( true );
+	}
+
+	public function test_preserving_query_obj( $as_legacy = false ) {
 		$posts = $this->create_posts();
 
 		/* Prime the global wp_query with a search request */
@@ -199,7 +217,9 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		   otherwise preserve the state of the query object */
 
 		$injected = array( $posts[1], $posts[0] );
-		$injected_posts = c2c_inject_query_posts( $injected, array(), null, true );
+		$injected_posts = $as_legacy
+			? c2c_inject_query_posts( $injected, array(), null, true )
+			: c2c_inject_query_posts( $injected, array( 'preserve_query_obj' => true  ) );
 
 		$this->assertEquals( $injected, $injected_posts );
 		$this->assertEquals( $injected, $wp_query->posts );
@@ -214,6 +234,10 @@ class Inject_Query_Posts_Test extends WP_UnitTestCase {
 		$this->assertEquals( $injected, $injected_posts );
 		$this->assertEquals( $injected, $wp_query->posts );
 		$this->assertFalse( is_search() );
+	}
+
+	public function test_legacy_preserving_query_obj() {
+		$this->test_preserving_query_obj( true );
 	}
 
 }
