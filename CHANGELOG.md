@@ -10,6 +10,7 @@
 * Change: Remove long-deprecated `inject_query_posts()`
 * Change: Cast first argument to `inject_query_posts_preserve_query_obj` filter as bool
 * Change: Move `inject_query_posts_preserve_query_obj` filter until after a query object has been obtained
+* Change: Restructure unit test file structure
 * Change: Note compatibility through WP 5.5+
 
 ## 2.2.9 _(2020-05-01)_
