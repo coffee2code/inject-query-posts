@@ -171,16 +171,16 @@ function c2c_inject_query_posts( $posts, $args = array() ) {
 
 	if ( $cache_posts ) {
 		update_post_caches(
-			$posts,
+			$query_obj->posts,
 			( isset( $config['post_type'] ) ? $config['post_type'] : 'post' ),
 			( isset( $config['update_post_term_cache'] ) ? $config['update_post_term_cache'] : true ),
 			( isset( $config['update_post_meta_cache'] ) ? $config['update_post_meta_cache'] : true )
 		);
 	}
 
-	$query_obj->post_count = count( $posts );
+	$query_obj->post_count = count( $query_obj->posts );
 	if ( $query_obj->post_count > 0 ) {
-		$query_obj->post = $posts[0];
+		$query_obj->post = $query_obj->posts[0];
 		$query_obj->found_posts = $query_obj->post_count;
 	}
 

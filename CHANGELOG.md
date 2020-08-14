@@ -6,6 +6,7 @@
 * Change: Consolidate multiple arguments for `c2c_inject_query_posts()` into an array
     * Change: Replace second and subsequent args with `$args`, a configuration array
     * Note: Legacy (pre-3.0) syntax is still supported, so existing code won't break
+* Change: Ensure use of post objects after the incoming posts have been mapped as such
 * Change: Remove long-deprecated `inject_query_posts()`
 * Change: Cast first argument to `inject_query_posts_preserve_query_obj` filter as bool
 * Change: Move `inject_query_posts_preserve_query_obj` filter until after a query object has been obtained
