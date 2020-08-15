@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 5.5
-Stable tag: 2.2.9
+Stable tag: 3.0
 
 Facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
 
@@ -147,6 +147,26 @@ Do:
 
 == Changelog ==
 
+= 3.0 (2020-08-14) =
+Highlights:
+
+* This significant release changes argument handling (while retaining backward compatibility), removes long-deprecated `inject_query_posts()`, changes unit test file structure, improves inline documentation, adds TODO.md file, and notes compatibility through WP 5.5+.
+
+Details:
+
+* New: Add TODO.md and move existing TODO list from top of main plugin file into it
+* New: Add inline documentation for `inject_query_posts_preserve_query_obj` filter
+* Change: Consolidate multiple arguments for `c2c_inject_query_posts()` into an array
+    * Change: Replace second and subsequent args with `$args`, a configuration array
+    * Note: Legacy (pre-3.0) syntax is still supported, so existing code won't break
+* Change: Ensure use of post objects after the incoming posts have been mapped as such
+* Change: Remove long-deprecated `inject_query_posts()`
+* Change: Cast first argument to `inject_query_posts_preserve_query_obj` filter as bool
+* Change: Move `inject_query_posts_preserve_query_obj` filter until after a query object has been obtained
+* Change: Restructure unit test file structure
+* Change: Note compatibility through WP 5.5+
+* Change: Add and update some inline documentation
+
 = 2.2.9 (2020-05-01) =
 * Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
 * Change: Note compatibility through WP 5.4+
@@ -158,24 +178,13 @@ Do:
 * Change: Unit tests: Change method signature of `assertQueryTrue()` to match parent's update to use the spread operator
 * Change: Update copyright date (2020)
 
-= 2.2.7 (2019-02-13) =
-* New: Add CHANGELOG.md and move all but most recent changelog entries into it
-* Change: Cast return value of `inject_query_posts_preserve_query_obj` as boolean
-* Change: Note compatibility through WP 5.1+
-* Unit tests:
-    * Change: Update unit test install script and bootstrap to use latest WP unit test repo
-    * Change: Stop testing `is_comments_popup()` due to its deprecation
-* Fix: Correct inline documentation for function parameter defaults
-* Change: Reformat function docblocks for better line-wrapping
-* Change: Update copyright date (2019)
-* Change: Update License URI to be HTTPS
-* Change: Rename readme.txt section from 'Filters' to 'Hooks'
-* Change: Split paragraph in README.md's "Support" section into two
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/inject-query-posts/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 3.0 =
+Notable update: Changed argument handling, removed long-deprecated `inject_query_posts()`, changed unit test file structure, improved inline documentation, added TODO.md file, and noted compatibility through WP 5.5+.
 
 = 2.2.9 =
 Trivial update: Updated a few URLs to be HTTPS and noted compatibility through WP 5.4+.

@@ -1,6 +1,13 @@
 # Changelog
 
-## _(in-progress)_
+## 3.0 _(2020-08-14)_
+
+### Highlights:
+
+This significant release changes argument handling (while retaining backward compatibility), removes long-deprecated `inject_query_posts()`, changes unit test file structure, improves inline documentation, adds TODO.md file, and notes compatibility through WP 5.5+.
+
+### Details:
+
 * New: Add TODO.md and move existing TODO list from top of main plugin file into it
 * New: Add inline documentation for `inject_query_posts_preserve_query_obj` filter
 * Change: Consolidate multiple arguments for `c2c_inject_query_posts()` into an array
