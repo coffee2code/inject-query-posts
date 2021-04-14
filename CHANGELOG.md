@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Update copyright date (2021)
+
 ## 3.0 _(2020-08-14)_
 
 ### Highlights:
