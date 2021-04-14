@@ -5,8 +5,8 @@ Tags: wp_query, query, posts, loop, template tags, coffee2code
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 5.5
-Stable tag: 3.0
+Tested up to: 5.7
+Stable tag: 3.0.1
 
 Facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
 
@@ -147,6 +147,10 @@ Do:
 
 == Changelog ==
 
+= 3.0.1 (2021-04-13) =
+* Change: Note compatibility through WP 5.7+
+* Change: Update copyright date (2021)
+
 = 3.0 (2020-08-14) =
 Highlights:
 
@@ -172,16 +176,13 @@ Details:
 * Change: Note compatibility through WP 5.4+
 * Change: Update links to coffee2code.com to be HTTPS
 
-= 2.2.8 (2019-11-22) =
-* Change: Note compatibility through WP 5.3+
-* Change: Use full URL for readme.txt link to full changelog
-* Change: Unit tests: Change method signature of `assertQueryTrue()` to match parent's update to use the spread operator
-* Change: Update copyright date (2020)
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/inject-query-posts/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 3.0.1 =
+Trivial update: noted compatibility through WP 5.7+ and updated copyright date (2021)
 
 = 3.0 =
 Notable update: Changed argument handling, removed long-deprecated `inject_query_posts()`, changed unit test file structure, improved inline documentation, added TODO.md file, and noted compatibility through WP 5.5+.
