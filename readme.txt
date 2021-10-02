@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 5.8
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 
 Facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
 
@@ -67,6 +67,17 @@ Theses are the hooks provided by the plugin:
 
 == Changelog ==
 
+= 3.0.2 (2021-10-01) =
+* New: Add DEVELOPER-DOCS.md and move template tag and hooks documentation into it
+* Change: Note compatibility through WP 5.8+
+* Unit tests:
+    * Change: Restructure unit test directories
+        * Change: Move `phpunit/` into `tests/phpunit/`
+        * Change: Move `phpunit/bin/` into `tests/`
+    * Change: Remove 'test-' prefix from unit test file
+    * Change: In bootstrap, store path to plugin file constant
+    * Change: In bootstrap, add backcompat for PHPUnit pre-v6.0
+
 = 3.0.1 (2021-04-13) =
 * Change: Note compatibility through WP 5.7+
 * Change: Update copyright date (2021)
@@ -91,15 +102,13 @@ Details:
 * Change: Note compatibility through WP 5.5+
 * Change: Add and update some inline documentation
 
-= 2.2.9 (2020-05-01) =
-* Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
-* Change: Note compatibility through WP 5.4+
-* Change: Update links to coffee2code.com to be HTTPS
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/inject-query-posts/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 3.0.2 =
+Trivial update: added DEVELOPER-DOCS.md, noted compatibility through WP 5.8+, and minor reorganization and tweaks to unit tests
 
 = 3.0.1 =
 Trivial update: noted compatibility through WP 5.7+ and updated copyright date (2021)

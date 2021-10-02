@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 3.0.2 _(2021-10-01)_
 * New: Add DEVELOPER-DOCS.md and move template tag and hooks documentation into it
 * Change: Note compatibility through WP 5.8+
 * Unit tests:

@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Inject Query Posts
- * Version:     3.0.1
+ * Version:     3.0.2
  * Plugin URI:  https://coffee2code.com/wp-plugins/inject-query-posts/
  * Author:      Scott Reilly
  * Author URI:  https://coffee2code.com/
@@ -21,7 +21,7 @@
  *
  * @package Inject_Query_Posts
  * @author  Scott Reilly
- * @version 3.0.1
+ * @version 3.0.2
  */
 
 /*
