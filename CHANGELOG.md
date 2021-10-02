@@ -6,6 +6,7 @@
     * Change: Restructure unit test directories
         * Change: Move `phpunit/` into `tests/phpunit/`
         * Change: Move `phpunit/bin/` into `tests/`
+    * Change: Remove 'test-' prefix from unit test file
     * Change: In bootstrap, store path to plugin file constant
     * Change: In bootstrap, add backcompat for PHPUnit pre-v6.0
 
