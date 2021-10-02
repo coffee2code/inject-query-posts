@@ -7,6 +7,7 @@
         * Change: Move `phpunit/` into `tests/phpunit/`
         * Change: Move `phpunit/bin/` into `tests/`
     * Change: In bootstrap, store path to plugin file constant
+    * Change: In bootstrap, add backcompat for PHPUnit pre-v6.0
 
 ## 3.0.1 _(2021-04-13)_
 * Change: Note compatibility through WP 5.7+
