@@ -6,6 +6,7 @@
 * Change: Tweak some documentation text spacing and fix a typo
 * Change: Note compatibility through WP 6.3+
 * Change: Update copyright date (2023)
+* New: Add a potential TODO feature
 
 ## 3.0.2 _(2021-10-01)_
 * New: Add DEVELOPER-DOCS.md and move template tag and hooks documentation into it
