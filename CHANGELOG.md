@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 3.0.3 _(2023-05-18)_
 * Change: Add link to DEVELOPER-DOCS.md to README.md
 * Change: Tweak installation instruction
 * Change: Tweak some documentation text spacing and fix a typo

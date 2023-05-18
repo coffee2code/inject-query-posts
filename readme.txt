@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 6.3
-Stable tag: 3.0.2
+Stable tag: 3.0.3
 
 Facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
 
@@ -67,6 +67,14 @@ Theses are the hooks provided by the plugin:
 
 == Changelog ==
 
+= 3.0.3 (2023-05-18) =
+* Change: Add link to DEVELOPER-DOCS.md to README.md
+* Change: Tweak installation instruction
+* Change: Tweak some documentation text spacing and fix a typo
+* Change: Note compatibility through WP 6.3+
+* Change: Update copyright date (2023)
+* New: Add a potential TODO feature
+
 = 3.0.2 (2021-10-01) =
 * New: Add DEVELOPER-DOCS.md and move template tag and hooks documentation into it
 * Change: Note compatibility through WP 5.8+
@@ -82,30 +90,13 @@ Theses are the hooks provided by the plugin:
 * Change: Note compatibility through WP 5.7+
 * Change: Update copyright date (2021)
 
-= 3.0 (2020-08-14) =
-Highlights:
-
-* This significant release changes argument handling (while retaining backward compatibility), removes long-deprecated `inject_query_posts()`, changes unit test file structure, improves inline documentation, adds TODO.md file, and notes compatibility through WP 5.5+.
-
-Details:
-
-* New: Add TODO.md and move existing TODO list from top of main plugin file into it
-* New: Add inline documentation for `inject_query_posts_preserve_query_obj` filter
-* Change: Consolidate multiple arguments for `c2c_inject_query_posts()` into an array
-    * Change: Replace second and subsequent args with `$args`, a configuration array
-    * Note: Legacy (pre-3.0) syntax is still supported, so existing code won't break
-* Change: Ensure use of post objects after the incoming posts have been mapped as such
-* Change: Remove long-deprecated `inject_query_posts()`
-* Change: Cast first argument to `inject_query_posts_preserve_query_obj` filter as bool
-* Change: Move `inject_query_posts_preserve_query_obj` filter until after a query object has been obtained
-* Change: Restructure unit test file structure
-* Change: Note compatibility through WP 5.5+
-* Change: Add and update some inline documentation
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/inject-query-posts/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 3.0.3 =
+Trivial update: noted compatibility through WP 6.3+, made minor documentation tweaks, and updated copyright date (2023)
 
 = 3.0.2 =
 Trivial update: added DEVELOPER-DOCS.md, noted compatibility through WP 5.8+, and minor reorganization and tweaks to unit tests
