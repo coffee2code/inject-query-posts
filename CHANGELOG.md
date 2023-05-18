@@ -1,6 +1,7 @@
 # Changelog
 
 ## _(in-progress)_
+* Change: Tweak installation instruction
 * Change: Note compatibility through WP 6.3+
 * Change: Update copyright date (2023)
 
