@@ -3,6 +3,7 @@
 ## _(in-progress)_
 * Change: Add link to DEVELOPER-DOCS.md to README.md
 * Change: Tweak installation instruction
+* Change: Tweak some documentation text spacing and fix a typo
 * Change: Note compatibility through WP 6.3+
 * Change: Update copyright date (2023)
 

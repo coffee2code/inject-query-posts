@@ -48,14 +48,14 @@ Links: [Plugin Homepage](https://coffee2code.com/wp-plugins/inject-query-posts/)
 
 1. Install via the built-in WordPress plugin installer. Or install the plugin code inside the plugins directory for your site (typically `/wp-content/plugins/`).
 2. Activate the plugin through the 'Plugins' admin menu in WordPress
-3. Use the `c2c_inject_query_posts()` function to inject an array of posts into a WP query object.  Specify the posts array as the first argument.  Configure the query object by passing an array as the second argument.  If specifying a WP query object, pass it as the third object; if not specified then the global wp_query object will be assumed.
+3. Use the `c2c_inject_query_posts()` function to inject an array of posts into a WP query object. Specify the posts array as the first argument. Configure the query object by passing an array as the second argument. If specifying a WP query object, pass it as the third object; if not specified then the global wp_query object will be assumed.
 
 
 == Developer Documentation ==
 
 Developer documentation can be found in [DEVELOPER-DOCS.md](https://github.com/coffee2code/inject-query-posts/blob/master/DEVELOPER-DOCS.md). That documentation covers the template tag and hooks provided by the plugin.
 
-As an overview, this is the template tag provided the plugin:
+As an overview, this is the template tag provided by the plugin:
 
 * `c2c_inject_query_posts()` : Template tag to inject an array of posts into a query object as if that query object had obtained those posts via a query.
 
