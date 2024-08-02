@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 6.6
-Stable tag: 3.0.3
+Stable tag: 3.0.4
 
 Facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
 
@@ -67,6 +67,18 @@ Theses are the hooks provided by the plugin:
 
 == Changelog ==
 
+= 3.0.4 (2024-08-02) =
+* Change: Note compatibility through WP 6.6+
+* Change: Update copyright date (2024)
+* New: Add `.gitignore` file
+* Change: Reduce number of 'Tags' from `readme.txt`
+* Change: Remove development and testing-related files from release packaging
+* Unit tests:
+    * Hardening: Prevent direct web access to `bootstrap.php`
+    * Allow tests to run against current versions of WordPress
+    * New: Add `composer.json` for PHPUnit Polyfill dependency
+    * Change: In bootstrap, store path to plugin directory in a constant
+
 = 3.0.3 (2023-05-18) =
 * Change: Add link to DEVELOPER-DOCS.md to README.md
 * Change: Tweak installation instruction
@@ -86,14 +98,13 @@ Theses are the hooks provided by the plugin:
     * Change: In bootstrap, store path to plugin file constant
     * Change: In bootstrap, add backcompat for PHPUnit pre-v6.0
 
-= 3.0.1 (2021-04-13) =
-* Change: Note compatibility through WP 5.7+
-* Change: Update copyright date (2021)
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/inject-query-posts/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 3.0.4 =
+Trivial update: noted compatibility through WP 6.6+, removed unit tests from release packaging, and updated copyright date (2024)
 
 = 3.0.3 =
 Trivial update: noted compatibility through WP 6.3+, made minor documentation tweaks, and updated copyright date (2023)
