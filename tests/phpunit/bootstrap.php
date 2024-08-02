@@ -5,7 +5,8 @@
  * @package Inject_Query_Posts
  */
 
-define( 'INJECT_QUERY_POSTS_PLUGIN_FILE', dirname( __FILE__, 3 ) . '/inject-query-posts.php' );
+define( 'INJECT_QUERY_POSTS_PLUGIN_DIR',  dirname( __FILE__, 3 ) );
+define( 'INJECT_QUERY_POSTS_PLUGIN_FILE', INJECT_QUERY_POSTS_PLUGIN_DIR . '/inject-query-posts.php' );
 
 ini_set( 'display_errors', 'on' );
 error_reporting( E_ALL );
