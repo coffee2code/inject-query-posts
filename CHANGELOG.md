@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Note compatibility through WP 6.6+
+
 ## 3.0.3 _(2023-05-18)_
 * Change: Add link to DEVELOPER-DOCS.md to README.md
 * Change: Tweak installation instruction
