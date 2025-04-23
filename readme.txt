@@ -59,7 +59,7 @@ As an overview, this is the template tag provided by the plugin:
 
 * `c2c_inject_query_posts()` : Template tag to inject an array of posts into a query object as if that query object had obtained those posts via a query.
 
-Theses are the hooks provided by the plugin:
+These are the hooks provided by the plugin:
 
 * `inject_query_posts_preserve_query_obj` : Overrides the value of the `$preserve_query_obj` argument passed to the function. This is not typical usage for most users.
 * `c2c_inject_query_posts` : Allows use of an alternative approach to safely invoke `c2c_inject_query_posts()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.
