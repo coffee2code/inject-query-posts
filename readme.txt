@@ -5,7 +5,7 @@ Tags: wp_query, query, posts, loop, template tags
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 6.6
+Tested up to: 6.8
 Stable tag: 3.0.4
 
 Facilitates injecting an array of posts into a WP query object as if queried. Particularly useful to allow use of standard template tags.
