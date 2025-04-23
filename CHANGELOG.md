@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Update copyright date (2025)
+
 ## 3.0.4 _(2024-08-02)_
 * Change: Note compatibility through WP 6.6+
 * Change: Update copyright date (2024)
