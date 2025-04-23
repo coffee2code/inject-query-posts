@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) or die();
 
 class Inject_Query_Posts_Test extends WP_UnitTestCase {
 
-	public function tearDown() {
+	public function tearDown(): void {
 		parent::tearDown();
 		// Ensure main WP_Query gets reset
 		if ( isset ( $GLOBALS['wp_query'] ) ) {
